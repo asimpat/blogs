@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+
+
+{% block body %}
+
+    <div class="card p-4 shadow" style="width: 100%; max-width: 400px;">
+      <h4 class="text-center mb-3">Join Today!!!</h4>
+      <form method="POST", action="{% url 'join' %}">
+      {% comment %} A cross site request forgery token {% endcomment %}
+      {% csrf_token %}
+       <div class="mb-3">
+          <label for="text" class="form-label">First Name</label>
+          <input name="fname" type="text" class="form-control" placeholder="first name" required />
+        </div>
+        <div class="mb-3">
+          <label for="text" class="form-label">Last Name</label>
+          <input name="lname" type="text" class="form-control" placeholder="last name" required />
+        </div>
+        <div class="mb-3">
+          <label for="number" class="form-label">Age</label>
+          <input name="age" type="number" class="form-control" placeholder="age" required />
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input name="email" type="email" class="form-control" placeholder="email" required />
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input name="passwd" type="password" class="form-control" placeholder="password" required />
+        </div>
+       
+        <button type="submit" class="btn btn-primary w-100">Sign Up</button>
+      </form>
+    </div>
+   
+
+{% endblock body %}
+
+  

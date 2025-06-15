@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+
+
+{% block body %}
+
+    {% for member in all %}
+         <h1>{{forloop.counter}} - {{member.fname}}  {{member.lname}}</h1>
+    <p>Email: {{member.email}}</p>
+    <p>Age: {{member.age}}</p>
+    <hr>
+    {% endfor %}
+
+      <div class="container py-3">
+
+        <h1 class="my-3">Latest</h1>
+        {% for post in posts %}
+        {% include "posts/includes/postCard.html" %}
+        {% endfor %}
+      </div>
+
+{% endblock body %}
+
+  

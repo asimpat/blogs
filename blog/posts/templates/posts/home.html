@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Home
+{% endblock title %}
+
+{% block body %}
+    <h1>{{ username|capfirst|truncatechars:4 }}</h1>
+    <!-- for tag works as the for loop -->
+    {% for post in posts %}
+
+    <h1>
+      <a href="{% url 'post' post.id%}"
+        >{{forloop.counter}} - {{post.title|title}}</a
+      >
+    </h1>
+    <p>{{post.content|truncatewords:5}}</p>
+    {% empty %}
+    <h1>No Post Available</h1>
+    {% endfor %}
+
+    <!-- use double curly bracket to access template AND use Django
+     tag to with just a single curly bracket -->
+
+{% endblock body %}
+
+
+ 
